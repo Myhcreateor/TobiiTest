@@ -6,16 +6,13 @@ public class Destory : MonoBehaviour {
 
 	public GameObject explosion;
 	public GameObject explosionplayer;
-	public int Value;
+	private int value;
 	private GameController gameController;
 
 	void Start(){
-		Value = 10;
-		GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-		if(gameControllerObject != null){
-			gameController = gameControllerObject.GetComponent<GameController>();
-			}
-	}
+        gameController = GameController.instance;
+        value = gameController.gameInfromarion.value;
+    }
  
      void Update()
     {
@@ -25,7 +22,7 @@ public class Destory : MonoBehaviour {
         {
             Instantiate(explosion, go.transform.position, go.transform.rotation);
             Destroy(go);
-            gameController.addScore(Value);
+            gameController.addScore(value);
         }
     }
 

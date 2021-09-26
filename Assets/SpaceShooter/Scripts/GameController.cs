@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using LitJson;
+using System.IO;
 public class GameController : MonoBehaviour {
 	public GameObject Obstacle;
+    public GameObject parabolaObstacleLift;
+    public GameObject parabolaObstacleRight;
     public GameObject Enemy;
 	public Vector3 spawnValue;
 	public int obstacleCount;
-	public float spawnWait;
+	private float spawnWait;
 	public float startWait;
     public static GameController instance;
     public AudioSource audioSource;
@@ -18,13 +21,17 @@ public class GameController : MonoBehaviour {
 	public Text gameoverText;
     public  int level;
 	private bool isgameover = false;
+    public GameInfromarion gameInfromarion;
      void Awake()
     {
         instance = this;
+        gameInfromarion = LoadJson();
     }
     void Start(){
-		gameoverText.text = "";
-		score = 100;
+        //gameInfromarion = new GameInfromarion();
+        gameoverText.text = "";
+		score = gameInfromarion.startScore;
+        spawnWait = gameInfromarion.spawnWait;
         maxScore = score;
         level = PlayerPrefs.GetInt("Level", 0);
         audioSource = this.GetComponent<AudioSource>();
@@ -35,9 +42,10 @@ public class GameController : MonoBehaviour {
 	void UpdateScore (){
 		scoreText.text = "分数:" + score;
 	}
+    
 	public void GameOver(){
 		isgameover = true;
-		gameoverText.text="GameOver";
+		gameoverText.text="游戏失败";
         scoreText.text = "最高分:" + maxScore;
         audioSource.Stop();
 	}
@@ -49,6 +57,26 @@ public class GameController : MonoBehaviour {
             StopAllCoroutines();
            
         }
+    }
+    public void isGameWin()
+    {
+        if(level==0&& score >= gameInfromarion.easyGameWinScore)//默认简单模式300分游戏胜利
+        {
+            gameoverText.text = "简单模式游戏胜利";
+            isgameover = true;
+            scoreText.text = "最高分:" + maxScore;
+            audioSource.Stop();
+            StopAllCoroutines();
+        }
+        else if(level == 1 && score >= gameInfromarion.difficultGameWinScore)//默认困难模式500分游戏胜利
+        {
+            gameoverText.text = "困难模式游戏胜利";
+            isgameover = true;
+            scoreText.text = "最高分:" + maxScore;
+            audioSource.Stop();
+            StopAllCoroutines();
+        }
+        
     }
     IEnumerator SpawnWaves()
     {
@@ -74,14 +102,36 @@ public class GameController : MonoBehaviour {
                 yield return new WaitForSeconds(startWait);
                 for (int i = 0; i < obstacleCount; i++)
                 {
-                    Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
-                    Quaternion spawnRotation = Quaternion.identity;
-                    Instantiate(Obstacle, spawnPosition, spawnRotation);
-                    yield return new WaitForSeconds(Random.Range(0.1f,0.7f));
-                    Vector3 spawnPosition1 = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
-                    Quaternion spawnRotation1 = Quaternion.identity;
-                    Instantiate(Obstacle, spawnPosition1, spawnRotation1);
-                    yield return new WaitForSeconds(Random.Range(0.5f, 1.0f));
+                    if(i == 0)
+                    {
+                        Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
+                        Quaternion spawnRotation = Quaternion.identity;
+                        Instantiate(Obstacle, spawnPosition, spawnRotation);
+                        yield return new WaitForSeconds(spawnWait - Random.Range(0.0f, 0.4f));
+                    }else if (i == 1)
+                    {
+                        Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
+                        Quaternion spawnRotation = Quaternion.identity;
+                        Instantiate(Obstacle, spawnPosition, spawnRotation);
+                        yield return new WaitForSeconds(spawnWait - Random.Range(0.0f, 0.4f));
+                    }
+                    else if (i == obstacleCount - 1)
+                    {
+                        if (Random.Range(0.0f, 1.0f) > 0.5)
+                        {
+                            Vector3 spawnParapolaPosition = new Vector3(Random.Range(-10, -6), 1, Random.Range(-6, 0));
+                            Quaternion spawnParapolaRotation = Quaternion.identity;
+                            Instantiate(parabolaObstacleLift, spawnParapolaPosition, spawnParapolaRotation);
+                        }
+                        else
+                        {
+                            Vector3 spawnParapolaPosition = new Vector3(Random.Range(8,12), 1, Random.Range(-6, 0));
+                            Quaternion spawnParapolaRotation = Quaternion.identity;
+                            Instantiate(parabolaObstacleRight, spawnParapolaPosition, spawnParapolaRotation);
+                        }
+                        yield return new WaitForSeconds(spawnWait - Random.Range(0f, 0.4f));
+                    }
+                   
                 }
 
             }
@@ -99,5 +149,22 @@ public class GameController : MonoBehaviour {
             maxScore = score;
         }
 		UpdateScore();
+        isGameWin();
 	}
+    /// <summary>
+    /// 关于Json
+    /// </summary>
+    private void SaveJson()
+    {
+        string path = Application.streamingAssetsPath + "\\Json\\GameInformation.txt";
+        string s = JsonMapper.ToJson(gameInfromarion);
+        File.WriteAllText(path, s);
+    }
+    private GameInfromarion LoadJson()
+    {
+        string path = Application.streamingAssetsPath + "\\Json\\GameInformation.txt";
+        string s = File.ReadAllText(path);
+        GameInfromarion gameInfromarion = JsonMapper.ToObject<GameInfromarion>(s);
+        return gameInfromarion;
+    }
 }
