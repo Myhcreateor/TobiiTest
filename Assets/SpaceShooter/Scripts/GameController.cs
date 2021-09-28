@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Obstacle;
     public GameObject parabolaObstacleLift;
     public GameObject parabolaObstacleRight;
+    public GameObject returnButton;
     public GameObject Enemy;
 	public Vector3 spawnValue;
 	public int obstacleCount;
@@ -30,7 +31,8 @@ public class GameController : MonoBehaviour {
     void Start(){
         //gameInfromarion = new GameInfromarion();
         gameoverText.text = "";
-		score = gameInfromarion.startScore;
+        returnButton.SetActive(false);
+        score = gameInfromarion.startScore;
         spawnWait = gameInfromarion.spawnWait;
         maxScore = score;
         level = PlayerPrefs.GetInt("Level", 0);
@@ -48,6 +50,7 @@ public class GameController : MonoBehaviour {
 		gameoverText.text="游戏失败";
         scoreText.text = "最高分:" + maxScore;
         audioSource.Stop();
+        returnButton.SetActive(true);
 	}
     public void isGameOver()
     {
@@ -67,6 +70,7 @@ public class GameController : MonoBehaviour {
             scoreText.text = "最高分:" + maxScore;
             audioSource.Stop();
             StopAllCoroutines();
+            returnButton.SetActive(true);
         }
         else if(level == 1 && score >= gameInfromarion.difficultGameWinScore)//默认困难模式500分游戏胜利
         {
@@ -75,8 +79,13 @@ public class GameController : MonoBehaviour {
             scoreText.text = "最高分:" + maxScore;
             audioSource.Stop();
             StopAllCoroutines();
+            returnButton.SetActive(true);
         }
         
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
     IEnumerator SpawnWaves()
     {
@@ -148,7 +157,7 @@ public class GameController : MonoBehaviour {
         {
             maxScore = score;
         }
-		UpdateScore();
+        if (!isgameover) { UpdateScore(); }
         isGameWin();
 	}
     /// <summary>
