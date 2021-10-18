@@ -15,10 +15,6 @@ public class UIGazePoint : MonoBehaviour
          GazePoint gazePoint=TobiiAPI.GetGazePoint();
         image.transform.position = gazePoint.Screen;
         GameObject go = TobiiAPI.GetFocusedObject();
-        if(go != null)
-        {
-            Debug.Log(go);
-        }
             
         
     }

@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
   explosionplayer: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
+  asteroidDown: {fileID: -166421894490050841}
 --- !u!114 &7648276246814079959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,4 +198,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27253bb42020df9439f59915b863a274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieTime: 2.4
+  deadTime: 1.2
