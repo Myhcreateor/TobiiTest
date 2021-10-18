@@ -6,7 +6,7 @@ public class AsteroidDown : MonoBehaviour
 {
     private GameController gameController;
     private float speed ;
-    public float dieTime = 5.00f;
+    public float deadTime=1.2f;
     private int bottleDamage;
     // Update is called once per frame
      void Start()
@@ -17,14 +17,15 @@ public class AsteroidDown : MonoBehaviour
     }
     void Update()
     {
-        dieTime -= Time.deltaTime;
-        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.85f) * -speed;
-        if (dieTime <= 0.0f)
+        GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.5f) * -speed;
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "AirWall")
         {
             Destroy(this.gameObject);
             gameController.addScore(-bottleDamage);
             gameController.isGameOver();
         }
-        
     }
 }
