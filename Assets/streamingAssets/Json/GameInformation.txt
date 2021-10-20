@@ -1,4 +1,4 @@
-{"value":10,"asteroidDamage":20,"asteroidSpeed":6,"startScore":100,"easyGameWinScore":300,"difficultGameWinScore":500,"spawnWait":1}
+{"value":10,"asteroidDamage":20,"asteroidSpeed":6,"startScore":100,"easyGameWinScore":300,"difficultGameWinScore":500,"spawnWait":2}
 //public int value;消灭一个Asteroid获得积分数
 //public int asteroidDamage;Asteroid未击毁减少的分数
 //public int asteroidSpeed;Asteroid的下降速度

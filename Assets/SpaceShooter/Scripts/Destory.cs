@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Tobii.Gaming;
+using DG.Tweening;
+using System;
+
 public class Destory : MonoBehaviour {
 
 	public GameObject explosion;
 	public GameObject explosionplayer;
 	private int value;
     public float deadTime=1.2f;
-    private float deadTimer;
+    private float deadTimer=0.0f;
+    private bool isTranslate=false;
     private GameObject prego;
 	private GameController gameController;
 	void Start(){
@@ -16,30 +20,26 @@ public class Destory : MonoBehaviour {
         value = gameController.gameInfromarion.value;
         
     }
- 
-     void Update()
+
+    void Update()
     {
         GameObject go = TobiiAPI.GetFocusedObject();
         if (go != null && go.tag == "Obstacle")
         {
             go.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            if (prego != go)
+            if (isTranslate == false)
             {
-                deadTimer = 0.0f;
+                Tween twe = go.transform.DOScale(new Vector3(1.25f, 1.25f, 1.25f), 1.2f);
+                twe.SetEase(Ease.InCubic);
+                twe.OnComplete(()=>
+                {
+                    Instantiate(explosion, go.transform.position, go.transform.rotation);
+                    DestroyImmediate(go.gameObject);
+                    gameController.addScore(value);
+                });
+                isTranslate = true;
             }
-            else
-            {
-                deadTimer += Time.deltaTime;
-            }
-            if (deadTimer >= deadTime)
-            { 
-                Instantiate(explosion, go.transform.position, go.transform.rotation);
-                Destroy(go);
-                gameController.addScore(value);
-            }
-
         }
-        prego = go;
     }
 
 

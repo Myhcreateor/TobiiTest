@@ -242,6 +242,7 @@
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\MotionBlur.shader" />
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\ColorGrading.cginc" />
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\DepthOfField.shader" />
+    <None Include="Assets\Plungs\DOTween\readme.txt" />
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\Fog.shader" />
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\AmbientOcclusion.shader" />
     <None Include="Assets\Plungs\Tobii\DemoScenes\Shaders\PostProcessing\Resources\Shaders\EyeAdaptation.shader" />
@@ -433,6 +434,9 @@
     </Reference>
     <Reference Include="LitJson">
       <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/LitJson/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/2019.4.4f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

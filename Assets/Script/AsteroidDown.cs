@@ -7,10 +7,7 @@ public class AsteroidDown : MonoBehaviour
     private GameController gameController;
     private float speed ;
     private int bottleDamage;
-    public float DeadTime
-    {
-        get;set;
-    }
+
     // Update is called once per frame
      void Start()
     {
