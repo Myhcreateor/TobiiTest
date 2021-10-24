@@ -27,6 +27,11 @@ public class AsteroidDown : MonoBehaviour
             Destroy(this.gameObject);
             gameController.addScore(-bottleDamage);
             gameController.isGameOver();
+            GameProgress.unfinished++;
+            GameProgress.continuousFinished = 0;
+            GameProgress.continuousUnfinished++;
+            GameProgress.AdjustDifficult();
+            Debug.Log("differentLevel:" + GameProgress.differentLevel);
         }
     }
 }

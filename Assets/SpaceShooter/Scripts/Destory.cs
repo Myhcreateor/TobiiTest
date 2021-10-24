@@ -18,7 +18,6 @@ public class Destory : MonoBehaviour {
 	void Start(){
         gameController = GameController.instance;
         value = gameController.gameInfromarion.value;
-        
     }
 
     void Update()
@@ -36,6 +35,11 @@ public class Destory : MonoBehaviour {
                     Instantiate(explosion, go.transform.position, go.transform.rotation);
                     DestroyImmediate(go.gameObject);
                     gameController.addScore(value);
+                    GameProgress.finished++;
+                    GameProgress.continuousFinished++;
+                    GameProgress.continuousUnfinished=0;
+                    GameProgress.AdjustDifficult();
+                    Debug.Log("differentLevel:"+GameProgress.differentLevel);
                 });
                 isTranslate = true;
             }

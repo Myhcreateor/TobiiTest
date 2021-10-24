@@ -89,6 +89,7 @@ public class GameController : MonoBehaviour {
     }
     IEnumerator SpawnWaves()
     {
+        
         if (level == 0)
         {
             for (int j = 0; j < 100; j++)
@@ -99,7 +100,7 @@ public class GameController : MonoBehaviour {
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(Obstacle, spawnPosition, spawnRotation);
-                    yield return new WaitForSeconds(spawnWait);
+                    yield return new WaitForSeconds(spawnWait+(3-GameProgress.differentLevel)*0.5f);
                 }
 
             }
@@ -146,11 +147,9 @@ public class GameController : MonoBehaviour {
             }
         }
            
-            
-    
-        
-        
     }
+
+
 	public void	addScore(int Value){
 		score += Value;
         if (score > maxScore)
@@ -160,16 +159,17 @@ public class GameController : MonoBehaviour {
         if (!isgameover) { UpdateScore(); }
         isGameWin();
 	}
+    
     /// <summary>
     /// 关于Json
     /// </summary>
-    private void SaveJson()
+    public void SaveJson()
     {
         string path = Application.streamingAssetsPath + "\\Json\\GameInformation.txt";
         string s = JsonMapper.ToJson(gameInfromarion);
         File.WriteAllText(path, s);
     }
-    private GameInfromarion LoadJson()
+    public  GameInfromarion LoadJson()
     {
         string path = Application.streamingAssetsPath + "\\Json\\GameInformation.txt";
         string s = File.ReadAllText(path);

@@ -262,14 +262,14 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
-    <Reference Include="LitJson">
-      <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/LitJson/LitJson.dll</HintPath>
-    </Reference>
     <Reference Include="DOTween">
       <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
       <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/DOTween/Editor/DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Assets/Plungs/LitJson/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>E:/我的unity/华中师范研究生/TobiiTest/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
