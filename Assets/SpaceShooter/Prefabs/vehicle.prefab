@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5875939486224898477}
   - component: {fileID: 5875939486224898479}
   - component: {fileID: 5875939486503792260}
+  - component: {fileID: -237596337388731522}
   m_Layer: 0
   m_Name: vehicle
-  m_TagString: Untagged
+  m_TagString: Aircaft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,3 +139,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20b0d3f0347bda4193b54380955e0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-237596337388731522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5875939486503792261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b1e205b288c8742afc6a91e12f844e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 3}
+  explosionplayer: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
+  deadTime: 1.2

@@ -1032,7 +1032,7 @@ MonoBehaviour:
     type: 3}
   parabolaObstacleRight: {fileID: 2513741465457689000, guid: b27bc717c824d804599d0fd79e20712e,
     type: 3}
-  aircaft: {fileID: 0}
+  aircaft: {fileID: 5875939486503792261, guid: bf1086b68e0b1bb49b3a5deea9e0efcc, type: 3}
   returnButton: {fileID: 1614968275}
   Enemy: {fileID: 1744975895292510, guid: d8b53510e9650cb409aaeabd5dcb9077, type: 3}
   spawnValue: {x: 6, y: 0, z: -3}
@@ -1049,14 +1049,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908097153}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1018314650}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!82 &1908097156
 AudioSource:
   m_ObjectHideFlags: 0
