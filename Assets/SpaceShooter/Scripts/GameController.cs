@@ -96,13 +96,23 @@ public class GameController : MonoBehaviour {
             for (int j = 0; j < 100; j++)
             {
                 yield return new WaitForSeconds(startWait);
-                for (int i = 0; i < obstacleCount; i++)
+                int count = obstacleCount + Random.Range(-1, 2);
+                for (int i = 0; i < count; i++)
                 {
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(Obstacle, spawnPosition, spawnRotation);
                     yield return new WaitForSeconds(spawnWait+(3-GameProgress.differentLevel)*0.5f);
+                    if (i == count - 1)
+                    {
+                        Vector3 position = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
+                        Vector3 v3 = new Vector3(0, 180, 0);
+                        Quaternion rotation = Quaternion.Euler(v3);
+                        Instantiate(aircaft, position, rotation);
+                        yield return new WaitForSeconds(spawnWait + (3 - GameProgress.differentLevel) * 0.5f);
+                    }
                 }
+
 
             }
         }
