@@ -277,3 +277,6 @@ E:\我的unity\华中师范研究生\TobiiTest\obj\Debug\Assembly-CSharp.csproj.
 E:\我的unity\华中师范研究生\TobiiTest\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 E:\我的unity\华中师范研究生\TobiiTest\obj\Debug\Assembly-CSharp.dll
 E:\我的unity\华中师范研究生\TobiiTest\obj\Debug\Assembly-CSharp.pdb
+E:\我的unity\华中师范研究生\TobiiTest\Temp\bin\Debug\DOTween.dll
+E:\我的unity\华中师范研究生\TobiiTest\Temp\bin\Debug\LitJson.dll
+E:\我的unity\华中师范研究生\TobiiTest\Temp\bin\Debug\DOTween.xml
