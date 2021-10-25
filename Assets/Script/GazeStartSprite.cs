@@ -32,7 +32,7 @@ public class GazeStartSprite : MonoBehaviour
             if (timer <= 0)
             {
                 PlayerPrefs.SetInt("Level", level);
-                Application.LoadLevel(1);
+                Application.LoadLevel(2);
             }
         }
         else if (go != null && go.ToString().CompareTo("easy (UnityEngine.GameObject)") == 0)
@@ -64,7 +64,7 @@ public class GazeStartSprite : MonoBehaviour
     public void StartGameButton()
     {
         PlayerPrefs.SetInt("Level", level);
-        Application.LoadLevel(1);
+        Application.LoadLevel(2);
     }
 
 }

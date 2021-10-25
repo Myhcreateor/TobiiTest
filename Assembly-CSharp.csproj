@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PanelManager.cs" />
     <Compile Include="Assets\Plungs\Tobii\DemoScenes\Scripts\CleanUI.cs" />
     <Compile Include="Assets\Plungs\Tobii\DemoScenes\Scripts\CleanUIForCanvas.cs" />
     <Compile Include="Assets\Plungs\Tobii\DemoScenes\Scripts\CleanUIOpacityOverrideForCanvas.cs" />
@@ -202,6 +201,8 @@
     <Compile Include="Assets\Script\AsteroidParabolaRightDown.cs" />
     <Compile Include="Assets\Script\GameInfromarion.cs" />
     <Compile Include="Assets\Script\GazeStartSprite.cs" />
+    <Compile Include="Assets\Script\PanelManager.cs" />
+    <Compile Include="Assets\Script\StartAnimation.cs" />
     <Compile Include="Assets\Script\UIGazePoint.cs" />
     <Compile Include="Assets\SpaceShooter\Scripts\Destory.cs" />
     <Compile Include="Assets\SpaceShooter\Scripts\EnemyMove.cs" />
