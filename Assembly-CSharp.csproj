@@ -196,6 +196,7 @@
     <Compile Include="Assets\Plungs\Tobii\Framework\UserPresence.cs" />
     <Compile Include="Assets\Plungs\Tobii\Plugins\SimpleJSON.cs" />
     <Compile Include="Assets\Plungs\Tobii\Plugins\TobiiGameIntegrationApi.cs" />
+    <Compile Include="Assets\Script\AircaftDown.cs" />
     <Compile Include="Assets\Script\AsteroidDown.cs" />
     <Compile Include="Assets\Script\AsteroidParabolaDown.cs" />
     <Compile Include="Assets\Script\AsteroidParabolaRightDown.cs" />

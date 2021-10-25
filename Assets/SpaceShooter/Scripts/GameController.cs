@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Obstacle;
     public GameObject parabolaObstacleLift;
     public GameObject parabolaObstacleRight;
+    public GameObject aircaft;
     public GameObject returnButton;
     public GameObject Enemy;
 	public Vector3 spawnValue;
@@ -38,7 +39,7 @@ public class GameController : MonoBehaviour {
         level = PlayerPrefs.GetInt("Level", 0);
         audioSource = this.GetComponent<AudioSource>();
 		UpdateScore ();
-		StartCoroutine( SpawnWaves ());
+		StartCoroutine(SpawnWaves());
 	
 	}
 	void UpdateScore (){
