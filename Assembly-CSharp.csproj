@@ -200,6 +200,7 @@
     <Compile Include="Assets\Script\AsteroidDown.cs" />
     <Compile Include="Assets\Script\AsteroidParabolaDown.cs" />
     <Compile Include="Assets\Script\AsteroidParabolaRightDown.cs" />
+    <Compile Include="Assets\Script\AudioPlay.cs" />
     <Compile Include="Assets\Script\GameInfromarion.cs" />
     <Compile Include="Assets\Script\GazeStartSprite.cs" />
     <Compile Include="Assets\Script\PanelManager.cs" />

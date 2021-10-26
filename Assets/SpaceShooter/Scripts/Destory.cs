@@ -13,6 +13,8 @@ public class Destory : MonoBehaviour
     private bool isTranslate = false;
     private GameObject prego;
     private GameController gameController;
+    private int randomNum;
+    private int flag=0;
     void Start()
     {
         gameController = GameController.instance;
@@ -38,6 +40,19 @@ public class Destory : MonoBehaviour
                     GameProgress.continuousFinished++;
                     GameProgress.continuousUnfinished = 0;
                     GameProgress.AdjustDifficult();
+                    randomNum = Random.Range(0, 5);
+                    if (flag == 0)
+                    {
+                        AudioPlay.Instance.PlayAudio(4);
+                        flag = 1;
+                    }
+                    else if (randomNum <= 1)
+                    {
+                        AudioPlay.Instance.PlayAudio(5);
+                    }else if (randomNum <= 2)
+                    {
+                        AudioPlay.Instance.PlayAudio(6);
+                    }
                     Debug.Log("differentLevel:" + GameProgress.differentLevel);
                 });
                 isTranslate = true;
@@ -58,6 +73,7 @@ public class Destory : MonoBehaviour
                     GameProgress.unfinished++;
                     GameProgress.continuousFinished = 0;
                     GameProgress.continuousUnfinished++;
+                    AudioPlay.Instance.PlayAudio(2);
                     GameProgress.AdjustDifficult();
                 });
                 isTranslate = true;

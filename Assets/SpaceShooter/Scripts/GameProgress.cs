@@ -14,11 +14,13 @@ public static class GameProgress
         if (continuousUnfinished >= 3&&differentLevel>1)
         {
             differentLevel--;
+            AudioPlay.Instance.PlayAudio(12);
             continuousUnfinished = 0;
         }
         if ((finished + unfinished) % 5 == 0&&(float)finished/ (finished + unfinished) >= 0.8)
         {
             differentLevel++;
+            AudioPlay.Instance.PlayAudio(11);
         }
 
     }

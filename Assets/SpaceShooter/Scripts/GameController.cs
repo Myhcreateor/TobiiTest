@@ -47,7 +47,8 @@ public class GameController : MonoBehaviour {
 	}
     
 	public void GameOver(){
-		isgameover = true;
+        AudioPlay.Instance.PlayAudio(10);
+        isgameover = true;
 		gameoverText.text="游戏失败";
         scoreText.text = "最高分:" + maxScore;
         audioSource.Stop();
@@ -66,6 +67,7 @@ public class GameController : MonoBehaviour {
     {
         if(level==0&& score >= gameInfromarion.easyGameWinScore)//默认简单模式300分游戏胜利
         {
+            AudioPlay.Instance.PlayAudio(9);
             gameoverText.text = "简单模式游戏胜利";
             isgameover = true;
             scoreText.text = "最高分:" + maxScore;
@@ -75,6 +77,7 @@ public class GameController : MonoBehaviour {
         }
         else if(level == 1 && score >= gameInfromarion.difficultGameWinScore)//默认困难模式500分游戏胜利
         {
+            AudioPlay.Instance.PlayAudio(9);
             gameoverText.text = "困难模式游戏胜利";
             isgameover = true;
             scoreText.text = "最高分:" + maxScore;
@@ -93,6 +96,8 @@ public class GameController : MonoBehaviour {
         
         if (level == 0)
         {
+            int flag1 = 0;
+            int flag2 = 0;
             for (int j = 0; j < 100; j++)
             {
                 yield return new WaitForSeconds(startWait);
@@ -102,6 +107,11 @@ public class GameController : MonoBehaviour {
                     Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
                     Quaternion spawnRotation = Quaternion.identity;
                     Instantiate(Obstacle, spawnPosition, spawnRotation);
+                    if (flag2 == 0)
+                    {
+                        AudioPlay.Instance.PlayAudio(3);
+                        flag2 = 1;
+                    }
                     yield return new WaitForSeconds(spawnWait+(3-GameProgress.differentLevel)*0.5f);
                     if (i == count - 1)
                     {
@@ -109,6 +119,11 @@ public class GameController : MonoBehaviour {
                         Vector3 v3 = new Vector3(0, 180, 0);
                         Quaternion rotation = Quaternion.Euler(v3);
                         Instantiate(aircaft, position, rotation);
+                        if (flag1 == 0)
+                        {
+                            AudioPlay.Instance.PlayAudio(1);
+                            flag1 = 1;
+                        }
                         yield return new WaitForSeconds(spawnWait + (3 - GameProgress.differentLevel) * 0.5f);
                     }
                 }
