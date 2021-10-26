@@ -25,6 +25,10 @@ public class AircaftDown : MonoBehaviour
         {
             Destroy(this.gameObject);
             gameController.addScore(value);
+            GameProgress.finished++;
+            GameProgress.continuousFinished++;
+            GameProgress.continuousUnfinished = 0;
+            GameProgress.AdjustDifficult();
         }
     }
 }

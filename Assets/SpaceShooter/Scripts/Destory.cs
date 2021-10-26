@@ -55,11 +55,10 @@ public class Destory : MonoBehaviour
                     Instantiate(explosionplayer, go.transform.position, go.transform.rotation);
                     DestroyImmediate(go.gameObject);
                     gameController.addScore(-value);
-                    //GameProgress.finished++;
-                    //GameProgress.continuousFinished++;
-                    //GameProgress.continuousUnfinished = 0;
-                    //GameProgress.AdjustDifficult();
-                    //Debug.Log("differentLevel:" + GameProgress.differentLevel);
+                    GameProgress.unfinished++;
+                    GameProgress.continuousFinished = 0;
+                    GameProgress.continuousUnfinished++;
+                    GameProgress.AdjustDifficult();
                 });
                 isTranslate = true;
             }
