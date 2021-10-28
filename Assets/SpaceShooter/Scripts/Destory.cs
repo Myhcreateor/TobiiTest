@@ -40,18 +40,22 @@ public class Destory : MonoBehaviour
                     GameProgress.continuousFinished++;
                     GameProgress.continuousUnfinished = 0;
                     GameProgress.AdjustDifficult();
-                    randomNum = Random.Range(0, 5);
-                    if (flag == 0)
-                    {
-                        AudioPlay.Instance.PlayAudio(4);
-                        flag = 1;
-                    }
-                    else if (randomNum <= 1)
+                    randomNum = Random.Range(0, 6);
+                    //if (flag == 0)
+                    //{
+                    //    //AudioPlay.Instance.PlayAudio(4);
+                    //    //flag = 1;
+                    //}
+                    if (randomNum <= 1)
                     {
                         AudioPlay.Instance.PlayAudio(5);
                     }else if (randomNum <= 2)
                     {
                         AudioPlay.Instance.PlayAudio(6);
+                    }
+                    else if (randomNum <= 3)
+                    {
+                        AudioPlay.Instance.PlayAudio(4);
                     }
                     Debug.Log("differentLevel:" + GameProgress.differentLevel);
                 });

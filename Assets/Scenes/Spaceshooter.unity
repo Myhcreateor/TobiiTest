@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 1908097155}
   - component: {fileID: 1908097154}
   - component: {fileID: 1908097156}
+  - component: {fileID: 1908097157}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1153,6 +1154,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1908097157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908097153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ac0df7c512c6847b7fa3639a60aee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip:
+  - {fileID: 8300000, guid: 5c9eb2179bc99ce4e91ed4ca2ec20b72, type: 3}
+  - {fileID: 8300000, guid: 274cbbf0d0d704e4faa293c7fd7d3c90, type: 3}
+  - {fileID: 8300000, guid: 75ecbc1e81cfbc446b2f3df9ced7a3d1, type: 3}
+  - {fileID: 8300000, guid: b80bde574ea553c4ea9d3d0464bbe038, type: 3}
+  - {fileID: 8300000, guid: f795b0af9dd392e49a870602fb82b406, type: 3}
+  - {fileID: 8300000, guid: 3ffe4d43d4458684c856b36bd92d6187, type: 3}
+  - {fileID: 8300000, guid: d9f6d0f5fd1d90b4e96b94ba4c1aecbd, type: 3}
+  - {fileID: 8300000, guid: 5d8bbdbffec24fb469c3d6c29126423b, type: 3}
+  - {fileID: 8300000, guid: 7fa660e02a8c48747ba4c2d645d8a232, type: 3}
+  - {fileID: 8300000, guid: 1ff49c71735605547b9d16134a723167, type: 3}
+  - {fileID: 8300000, guid: 755e42eb07b24634da76a14e29936c84, type: 3}
+  - {fileID: 8300000, guid: ad4aafb5dff247c438a957b37b455747, type: 3}
+  - {fileID: 8300000, guid: c515b50de895dcf4ea532a079a40be16, type: 3}
+  audioSource: {fileID: 1908097156}
 --- !u!1 &1924924855
 GameObject:
   m_ObjectHideFlags: 0

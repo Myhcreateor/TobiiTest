@@ -20,6 +20,7 @@ public static class GameProgress
         if ((finished + unfinished) % 5 == 0&&(float)finished/ (finished + unfinished) >= 0.8)
         {
             differentLevel++;
+            Debug.Log("xxxxxxx");
             AudioPlay.Instance.PlayAudio(11);
         }
 

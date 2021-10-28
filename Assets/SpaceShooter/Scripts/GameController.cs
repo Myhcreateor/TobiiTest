@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour {
 	public Text gameoverText;
     public  int level;
 	private bool isgameover = false;
+    private int flag1 = 0;
+    private int flag2 = 0;
     public GameInfromarion gameInfromarion;
      void Awake()
     {
@@ -96,8 +98,6 @@ public class GameController : MonoBehaviour {
         
         if (level == 0)
         {
-            int flag1 = 0;
-            int flag2 = 0;
             for (int j = 0; j < 100; j++)
             {
                 yield return new WaitForSeconds(startWait);
